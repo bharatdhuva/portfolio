@@ -1,4 +1,11 @@
-const educationItems = [
+interface EducationItem {
+  degree: string;
+  institution: string;
+  range: string;
+  extra?: string;
+}
+
+const educationItems: EducationItem[] = [
   {
     degree: "Bachelor of Engineering in Computer Science & Engineering",
     institution: "The Maharaja Sayajirao University of Baroda, Vadodara",

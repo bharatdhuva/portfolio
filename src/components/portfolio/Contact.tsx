@@ -1,6 +1,14 @@
 import { Mail, ArrowUpRight, Clock, Check, Server, Code, Terminal, BookOpen } from "lucide-react";
 
-const options = [
+interface ContactOption {
+  icon: (className: string) => React.ReactNode;
+  title: string;
+  subtitle: string;
+  href: string;
+  download?: boolean | string;
+}
+
+const options: ContactOption[] = [
   {
     icon: (className: string) => (
       <img
