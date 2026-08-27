@@ -279,8 +279,10 @@ function SpotifyStatus() {
   } | null>(null);
 
   useEffect(() => {
-    const LASTFM_API_KEY = "17be11e18927c09ab20c784c621e8e44";
+    const LASTFM_API_KEY = import.meta.env.VITE_LASTFM_API_KEY || "";
     const LASTFM_USER = "bharatdhuva";
+
+    if (!LASTFM_API_KEY) return;
 
     const fetchLastPlayed = async () => {
       try {
