@@ -15,6 +15,8 @@ interface Project {
   github?: string;
   globe?: string;
   objectFit?: string;
+  thumbnailAspect?: string;
+  disableThumbnailZoom?: boolean;
 }
 
 const projects: Project[] = [
@@ -25,6 +27,9 @@ const projects: Project[] = [
     gradient: "from-amber-500 via-orange-600 to-red-600",
     accent: "AI-Powered Career & Email Automation",
     image: outlyImg,
+    objectFit: "object-contain bg-[#f8f7f4]",
+    thumbnailAspect: "aspect-[2.104/1]",
+    disableThumbnailZoom: true,
     tech: ["Re", "TS", "VT", "Nd", "Ex", "Mg", "GE"],
     github: "https://github.com/bharatdhuva/Outly",
     globe: "https://outly.online",
@@ -82,13 +87,13 @@ export function Projects() {
                 href={p.globe || p.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative w-full aspect-video overflow-hidden rounded-t-xl block cursor-pointer bg-card"
+                className={`relative w-full ${p.thumbnailAspect ?? "aspect-video"} overflow-hidden rounded-t-xl block cursor-pointer bg-card`}
               >
                 {p.image ? (
                   <img
                     src={p.image}
                     alt={`${p.name} screenshot`}
-                    className="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-[1.03]"
+                    className={`w-full h-full ${p.objectFit ?? "object-cover"} block transition-transform duration-500 ${p.disableThumbnailZoom ? "" : "group-hover:scale-[1.03]"}`}
                   />
                 ) : (
                   /* Gradient fallback */
@@ -102,12 +107,12 @@ export function Projects() {
                 )}
               </a>
             ) : (
-              <div className="relative w-full aspect-video overflow-hidden rounded-t-xl block bg-card">
+              <div className={`relative w-full ${p.thumbnailAspect ?? "aspect-video"} overflow-hidden rounded-t-xl block bg-card`}>
                 {p.image ? (
                   <img
                     src={p.image}
                     alt={`${p.name} screenshot`}
-                    className="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-[1.03]"
+                    className={`w-full h-full ${p.objectFit ?? "object-cover"} block transition-transform duration-500 ${p.disableThumbnailZoom ? "" : "group-hover:scale-[1.03]"}`}
                   />
                 ) : (
                   /* Gradient fallback */
