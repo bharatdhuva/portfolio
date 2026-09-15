@@ -2,7 +2,7 @@ import { Github, Globe } from "lucide-react";
 import { TechIcon } from "./TechIcon";
 import interviewosImg from "../../assets/interviewos.gif";
 import khetseImg from "../../assets/khetse.gif";
-import outlyImg from "../../assets/outly.png";
+import outlyImg from "../../assets/outly-thumbnail.png";
 import bookstageImg from "../../assets/image.png";
 
 interface Project {
@@ -11,7 +11,6 @@ interface Project {
   gradient: string;
   accent: string;
   image?: string;
-  video?: string;
   tech: string[];
   github?: string;
   globe?: string;
@@ -26,7 +25,6 @@ const projects: Project[] = [
     gradient: "from-amber-500 via-orange-600 to-red-600",
     accent: "AI-Powered Career & Email Automation",
     image: outlyImg,
-    video: "/outly-video.mp4",
     tech: ["Re", "TS", "VT", "Nd", "Ex", "Mg", "GE"],
     github: "https://github.com/bharatdhuva/Outly",
     globe: "https://outly.online",
@@ -86,16 +84,7 @@ export function Projects() {
                 rel="noopener noreferrer"
                 className="relative w-full aspect-video overflow-hidden rounded-t-xl block cursor-pointer bg-card"
               >
-                {p.video ? (
-                  <video
-                    src={p.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                ) : p.image ? (
+                {p.image ? (
                   <img
                     src={p.image}
                     alt={`${p.name} screenshot`}
@@ -114,16 +103,7 @@ export function Projects() {
               </a>
             ) : (
               <div className="relative w-full aspect-video overflow-hidden rounded-t-xl block bg-card">
-                {p.video ? (
-                  <video
-                    src={p.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                ) : p.image ? (
+                {p.image ? (
                   <img
                     src={p.image}
                     alt={`${p.name} screenshot`}
