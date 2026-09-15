@@ -2,7 +2,7 @@ import { Github, Globe } from "lucide-react";
 import { TechIcon } from "./TechIcon";
 import interviewosImg from "../../assets/interviewos.gif";
 import khetseImg from "../../assets/khetse-preview.png";
-import outlyImg from "../../assets/outly-thumbnail.png";
+import outlyImg from "../../assets/outly-thumbnail-clean.png";
 import bookstageImg from "../../assets/image.png";
 
 interface Project {
@@ -79,7 +79,7 @@ export function Projects() {
         {projects.map((p) => (
           <article
             key={p.name}
-            className="rounded-xl border border-border bg-card hover:border-foreground/20 transition-all duration-200 group active:scale-[0.99] flex flex-col h-full relative"
+            className="rounded-xl border-x border-b border-border bg-card hover:border-foreground/20 transition-all duration-200 group active:scale-[0.99] flex flex-col h-full relative"
           >
             {/* ── Thumbnail (Flush 16:9 - Seamless Fit) ── */}
             {p.globe || p.github ? (
