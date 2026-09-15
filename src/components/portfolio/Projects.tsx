@@ -1,7 +1,7 @@
 import { Github, Globe } from "lucide-react";
 import { TechIcon } from "./TechIcon";
 import interviewosImg from "../../assets/interviewos.gif";
-import khetseImg from "../../assets/khetse.gif";
+import khetseImg from "../../assets/khetse-preview.png";
 import outlyImg from "../../assets/outly-thumbnail.png";
 import bookstageImg from "../../assets/image.png";
 
@@ -93,6 +93,8 @@ export function Projects() {
                   <img
                     src={p.image}
                     alt={`${p.name} screenshot`}
+                    loading={p.name === "Outly" ? "eager" : "lazy"}
+                    decoding="async"
                     className={`w-full h-full ${p.objectFit ?? "object-cover"} block transition-transform duration-500 ${p.disableThumbnailZoom ? "" : "group-hover:scale-[1.03]"}`}
                   />
                 ) : (
@@ -112,6 +114,8 @@ export function Projects() {
                   <img
                     src={p.image}
                     alt={`${p.name} screenshot`}
+                    loading="lazy"
+                    decoding="async"
                     className={`w-full h-full ${p.objectFit ?? "object-cover"} block transition-transform duration-500 ${p.disableThumbnailZoom ? "" : "group-hover:scale-[1.03]"}`}
                   />
                 ) : (

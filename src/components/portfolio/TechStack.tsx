@@ -46,7 +46,9 @@ const marqueeItems = [...techs, ...techs, ...techs];
 
 export function TechStack() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const speedRef = useRef(0.6); // Current speed in px/frame
   const targetSpeedRef = useRef(0.6); // Target speed in px/frame
   const offsetRef = useRef(0); // Scroll offset in px
@@ -57,7 +59,20 @@ export function TechStack() {
   }, [isHovered]);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0 },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     let animationId: number;
+    if (!isVisible || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const animate = () => {
       // Lerp (Linear Interpolation) for deceleration and acceleration easing
@@ -84,10 +99,10 @@ export function TechStack() {
 
     animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
-  }, []);
+  }, [isVisible]);
 
   return (
-    <section id="about" className="py-10">
+    <section ref={sectionRef} id="about" className="py-10">
       <h2 className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground mb-5 font-mono">
         TECH STACK
       </h2>

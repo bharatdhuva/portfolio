@@ -50,12 +50,11 @@ export function ScrollReveal({
       style={{
         opacity: isIntersecting ? 1 : 0,
         transform: isIntersecting ? "translateY(0) scale(1)" : "translateY(20px) scale(0.98)",
-        filter: isIntersecting ? "blur(0px)" : "blur(4px)",
-        transitionProperty: "opacity, transform, filter",
+        transitionProperty: "opacity, transform",
         transitionDuration: `${duration}ms`,
         transitionDelay: `${delay}ms`,
         transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-        willChange: "transform, opacity, filter",
+        willChange: isIntersecting ? "auto" : "opacity, transform",
       }}
     >
       {children}

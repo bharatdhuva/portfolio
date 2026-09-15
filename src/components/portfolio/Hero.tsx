@@ -40,13 +40,18 @@ export function Hero() {
       `}</style>
 
       <div className="relative w-full aspect-[2.7/1] sm:aspect-[3.2/1] overflow-hidden rounded-xl border border-border shadow-sm">
-        <img src={bannerImg} alt="Banner Image" className="w-full h-full object-cover" />
+        <img
+          src={bannerImg}
+          alt="Banner Image"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       <div className="flex items-center gap-4 sm:gap-4 mb-8 mt-6 min-w-0">
         <img
           src={profileImg}
           alt="Bharat Dhuva"
+          decoding="async"
           className="h-12 w-12 flex-shrink-0 rounded-full object-cover border border-border shadow-sm"
         />
         <div className="min-w-0">
