@@ -13,18 +13,6 @@ interface ExperienceItem {
 const items: ExperienceItem[] = [
   {
     title: "Software Development Intern",
-    company: "Internship",
-    location: "Onsite",
-    range: "Dec 2023 — Feb 2024",
-    description: "Full-Stack Development | Web Applications | APIs",
-    bullets: [
-      "Engineered frontend and backend features for web applications, collaborating on clean API contracts and responsive interfaces.",
-      "Assisted in component optimization, database queries, and debugging cross-browser application states.",
-    ],
-    tech: ["JS", "Re", "Nd", "Ex", "Mg"],
-  },
-  {
-    title: "Software Development Intern",
     company: "YV Thinkers",
     location: "Onsite",
     range: "Jul 2023 — Sep 2023",
