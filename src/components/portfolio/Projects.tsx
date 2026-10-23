@@ -72,16 +72,19 @@ const projects: Project[] = [
 export function Projects() {
   return (
     <section id="projects" className="py-10">
-      <h2 className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground mb-5 font-mono">
-        FEATURED PROJECTS
-      </h2>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground font-mono">
+          FEATURED PROJECTS ({projects.length})
+        </h2>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {projects.map((p) => (
           <article
             key={p.name}
-            className="rounded-xl border-x border-b border-border bg-card hover:border-foreground/20 transition-all duration-200 group active:scale-[0.99] flex flex-col h-full relative"
+            className="rounded-xl border border-border bg-card hover:border-foreground/20 transition-all duration-200 group active:scale-[0.99] flex flex-col h-full relative"
           >
-            {/* ── Thumbnail (Flush 16:9 - Seamless Fit) ── */}
+            {/* ── Thumbnail ── */}
             {p.globe || p.github ? (
               <a
                 href={p.globe || p.github}
@@ -98,7 +101,6 @@ export function Projects() {
                     className={`w-full h-full ${p.objectFit ?? "object-cover"} block transition-transform duration-500 ${p.disableThumbnailZoom ? "" : "group-hover:scale-[1.03]"}`}
                   />
                 ) : (
-                  /* Gradient fallback */
                   <div
                     className={`w-full h-full bg-gradient-to-br ${p.gradient} flex items-center justify-center`}
                   >
@@ -109,7 +111,9 @@ export function Projects() {
                 )}
               </a>
             ) : (
-              <div className={`relative w-full ${p.thumbnailAspect ?? "aspect-video"} overflow-hidden rounded-t-xl block bg-card`}>
+              <div
+                className={`relative w-full ${p.thumbnailAspect ?? "aspect-video"} overflow-hidden rounded-t-xl block bg-card`}
+              >
                 {p.image ? (
                   <img
                     src={p.image}
@@ -119,7 +123,6 @@ export function Projects() {
                     className={`w-full h-full ${p.objectFit ?? "object-cover"} block transition-transform duration-500 ${p.disableThumbnailZoom ? "" : "group-hover:scale-[1.03]"}`}
                   />
                 ) : (
-                  /* Gradient fallback */
                   <div
                     className={`w-full h-full bg-gradient-to-br ${p.gradient} flex items-center justify-center`}
                   >
@@ -131,11 +134,13 @@ export function Projects() {
               </div>
             )}
 
-            {/* ── Card Body (Padding) ── */}
+            {/* ── Card Body ── */}
             <div className="p-4 sm:p-4.5 flex-1 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-semibold text-foreground tracking-tight">{p.name}</h3>
+                <div className="flex items-center justify-between mb-1.5">
+                  <h3 className="text-sm font-semibold text-foreground tracking-tight">
+                    {p.name}
+                  </h3>
                   <div className="flex items-center gap-3 text-muted-foreground">
                     {p.github && (
                       <div className="relative inline-flex group/github">
@@ -148,19 +153,6 @@ export function Projects() {
                         >
                           <Github className="h-[18px] w-[18px]" />
                         </a>
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 px-2.5 py-1 text-[11px] font-medium font-sans rounded-md whitespace-nowrap pointer-events-none transition-all duration-150 ease-out z-50 opacity-0 translate-y-1 bg-zinc-800 text-zinc-100 shadow-md group-hover/github:opacity-100 group-hover/github:translate-y-0 border border-zinc-700/50">
-                          View on GitHub
-                          <div
-                            className="absolute top-full left-1/2 -translate-x-1/2 -mt-px"
-                            style={{
-                              width: 0,
-                              height: 0,
-                              borderLeft: "4px solid transparent",
-                              borderRight: "4px solid transparent",
-                              borderTop: "4px solid #27272a",
-                            }}
-                          />
-                        </div>
                       </div>
                     )}
                     {p.globe && (
@@ -174,19 +166,6 @@ export function Projects() {
                         >
                           <Globe className="h-[18px] w-[18px]" />
                         </a>
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 px-2.5 py-1 text-[11px] font-medium font-sans rounded-md whitespace-nowrap pointer-events-none transition-all duration-150 ease-out z-50 opacity-0 translate-y-1 bg-zinc-800 text-zinc-100 shadow-md group-hover/globe:opacity-100 group-hover/globe:translate-y-0 border border-zinc-700/50">
-                          Visit Website
-                          <div
-                            className="absolute top-full left-1/2 -translate-x-1/2 -mt-px"
-                            style={{
-                              width: 0,
-                              height: 0,
-                              borderLeft: "4px solid transparent",
-                              borderRight: "4px solid transparent",
-                              borderTop: "4px solid #27272a",
-                            }}
-                          />
-                        </div>
                       </div>
                     )}
                   </div>

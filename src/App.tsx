@@ -9,10 +9,18 @@ import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { ScrollReveal } from "@/components/portfolio/ScrollReveal";
 import { KeyboardSection } from "@/components/portfolio/KeyboardSection";
+import { CommandMenu } from "@/components/portfolio/CommandMenu";
+import { Toaster } from "@/components/ui/sonner";
 
 function App() {
   return (
     <div className="min-h-screen text-foreground antialiased relative">
+      {/* Global Interactive Command Palette (Cmd+K / Ctrl+K) */}
+      <CommandMenu />
+
+      {/* Global Notification Toaster */}
+      <Toaster position="bottom-right" richColors />
+
       {/* Centered Background Grid */}
       <div
         className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none"
@@ -41,10 +49,10 @@ function App() {
           <Projects />
         </ScrollReveal>
         <ScrollReveal>
-          <Education />
+          <Experience />
         </ScrollReveal>
         <ScrollReveal>
-          <Experience />
+          <Education />
         </ScrollReveal>
         <ScrollReveal>
           <Contact />

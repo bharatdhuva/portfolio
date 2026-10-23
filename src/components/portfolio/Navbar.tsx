@@ -1,4 +1,4 @@
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
@@ -181,17 +181,28 @@ export function Navbar() {
             })}
           </div>
 
-          <button
-            onClick={toggle}
-            className="py-2 cursor-pointer text-muted-foreground hover:text-foreground transition-colors group focus:outline-none"
-            aria-label="Toggle Theme"
-          >
-            {dark ? (
-              <Sun className="h-[17px] w-[17px] transition-transform duration-200 ease-in-out group-hover:-rotate-12 active:scale-90" />
-            ) : (
-              <Moon className="h-[17px] w-[17px] transition-transform duration-200 ease-in-out group-hover:-rotate-12 active:scale-90" />
-            )}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-command-menu"))}
+              className="py-2 px-1 cursor-pointer text-muted-foreground hover:text-foreground transition-colors group focus:outline-none"
+              aria-label="Search portfolio (⌘K)"
+              title="Search (⌘K)"
+            >
+              <Search className="h-[17px] w-[17px] transition-transform duration-200 ease-in-out group-hover:scale-110 active:scale-90" />
+            </button>
+
+            <button
+              onClick={toggle}
+              className="py-2 px-1 cursor-pointer text-muted-foreground hover:text-foreground transition-colors group focus:outline-none"
+              aria-label="Toggle Theme"
+            >
+              {dark ? (
+                <Sun className="h-[17px] w-[17px] transition-transform duration-200 ease-in-out group-hover:-rotate-12 active:scale-90" />
+              ) : (
+                <Moon className="h-[17px] w-[17px] transition-transform duration-200 ease-in-out group-hover:-rotate-12 active:scale-90" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </nav>

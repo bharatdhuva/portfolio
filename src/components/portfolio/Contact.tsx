@@ -1,4 +1,5 @@
 import { Mail, ArrowUpRight, Clock, Check, Server, Code, Terminal, BookOpen } from "lucide-react";
+import { toast } from "sonner";
 
 interface ContactOption {
   icon: (className: string) => React.ReactNode;
@@ -182,6 +183,14 @@ export function Contact() {
                   download={download}
                   target={download ? undefined : href.startsWith("mailto:") ? undefined : "_blank"}
                   rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (href.startsWith("mailto:")) {
+                      navigator.clipboard.writeText("bharatdhuva27@gmail.com");
+                      toast.success("Email copied to clipboard!", {
+                        description: "bharatdhuva27@gmail.com",
+                      });
+                    }
+                  }}
                   className="flex items-center gap-3 p-3 rounded-md border border-border hover:bg-muted transition-all duration-150 group hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
                 >
                   {renderIcon("h-[18px] w-[18px] flex-shrink-0")}

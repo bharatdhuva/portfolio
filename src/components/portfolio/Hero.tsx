@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MapPin, Mail, User, Github, Globe, Twitter } from "lucide-react";
+import { toast } from "sonner";
 import profileImg from "../../assets/“Peace Feels Better in Nature 🍃” copy.jpg";
 import bannerImg from "../../assets/banner.gif";
 
@@ -205,6 +206,14 @@ export function Hero() {
               target={href.startsWith("mailto:") ? undefined : "_blank"}
               rel="noopener noreferrer"
               aria-label={label}
+              onClick={(e) => {
+                if (href.startsWith("mailto:")) {
+                  navigator.clipboard.writeText("bharatdhuva27@gmail.com");
+                  toast.success("Email copied to clipboard!", {
+                    description: "bharatdhuva27@gmail.com",
+                  });
+                }
+              }}
               className="text-[#737373] dark:text-[#a0a0a0] hover:text-[#111111] dark:hover:text-[#f0f0f0] transition-all duration-150 hover:scale-110 active:scale-90 cursor-pointer"
             >
               {icon}
