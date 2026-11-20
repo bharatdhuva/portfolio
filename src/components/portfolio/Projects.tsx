@@ -2,7 +2,7 @@ import { Github, Globe } from "lucide-react";
 import { TechIcon } from "./TechIcon";
 import interviewosImg from "../../assets/interviewos.gif";
 import khetseImg from "../../assets/khetse-preview.png";
-import outlyImg from "../../assets/outly-thumbnail-clean.png";
+import outlyImg from "../../assets/outly.gif";
 import bookstageImg from "../../assets/image.png";
 
 interface Project {
@@ -27,8 +27,8 @@ const projects: Project[] = [
     gradient: "from-amber-500 via-orange-600 to-red-600",
     accent: "AI-Powered Career & Email Automation",
     image: outlyImg,
-    objectFit: "object-contain bg-[#f8f7f4]",
-    thumbnailAspect: "aspect-[2.104/1]",
+    objectFit: "object-cover",
+    thumbnailAspect: "aspect-[2.19/1]",
     disableThumbnailZoom: true,
     tech: ["Re", "TS", "VT", "Nd", "Ex", "Mg", "GE"],
     github: "https://github.com/bharatdhuva/Outly",
