@@ -65,7 +65,7 @@ export function DockNavbar({ links, updates }: DockNavbarProps) {
 
     // Theme sync initial load
     const stored = localStorage.getItem("theme");
-    let isDark = true; // Default to dark theme
+    let isDark = false; // Default to light theme
     if (stored) {
       isDark = stored === "dark" || stored === "dim";
     }

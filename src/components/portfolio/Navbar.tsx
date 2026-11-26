@@ -8,7 +8,7 @@ const links = [
 ];
 
 export function Navbar() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [clickedLabel, setClickedLabel] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -18,12 +18,12 @@ export function Navbar() {
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
-    let isDark = true;
+    let isDark = false;
     if (stored) {
       isDark = stored === "dark" || stored === "dim";
     } else {
-      isDark = true;
-      localStorage.setItem("theme", "dark");
+      isDark = false;
+      localStorage.setItem("theme", "light");
     }
     setDark(isDark);
     document.documentElement.classList.toggle("dark", isDark);
