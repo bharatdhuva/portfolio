@@ -46,7 +46,7 @@ export function Education() {
               />
             </div>
             <div className="flex-1 min-w-0 space-y-1">
-              <div className="flex items-baseline justify-between gap-4 flex-wrap">
+              <div className="flex items-baseline justify-between gap-x-4 gap-y-0.5 flex-wrap">
                 <div className="text-sm font-semibold text-foreground">
                   {item.degree}
                 </div>

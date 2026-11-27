@@ -145,7 +145,7 @@ export function Navbar() {
         className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-background [mask-image:linear-gradient(to_bottom,black_82%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,black_82%,transparent)]"
       />
 
-      <div className="relative w-full max-w-4xl mx-auto px-6 lg:px-0">
+      <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-0">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-5 md:gap-6">
             {links.map((l) => {

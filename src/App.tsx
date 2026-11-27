@@ -38,7 +38,7 @@ const CommandMenu = lazy(() =>
 
 function App() {
   return (
-    <div className="min-h-screen text-foreground antialiased relative">
+    <div className="min-h-screen text-foreground antialiased relative overflow-x-clip">
       {/* Global Interactive Command Palette (Cmd+K / Ctrl+K) */}
       <Suspense fallback={null}>
         <CommandMenu />

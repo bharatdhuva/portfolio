@@ -63,7 +63,7 @@ export function KeyboardSection() {
       id="keyboard"
       className="py-12 md:py-20 border-t border-zinc-200/50 dark:border-zinc-800/30"
     >
-      <div className="max-w-4xl mx-auto px-4 text-center flex flex-col items-center">
+      <div className="w-full text-center flex flex-col items-center">
         {/* Section Header (Visible on both mobile & desktop) */}
         <h2 className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground mb-6 font-mono uppercase text-left w-full max-w-2xl">
           LEAVE YOUR THOUGHTS...

@@ -75,7 +75,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="flex gap-x-6 sm:gap-x-10 gap-y-4 mb-8">
+      <div className="flex flex-wrap gap-x-6 sm:gap-x-10 gap-y-4 mb-8">
         <Meta
           label="LOCATION"
           icon={<MapPin className="h-3.5 w-3.5" />}
