@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { MapPin, Mail, User, Github, Globe, Twitter } from "lucide-react";
 import { toast } from "sonner";
-import profileImg from "../../assets/“Peace Feels Better in Nature 🍃” copy.jpg";
-import bannerImg from "../../assets/banner.gif";
+import profileImg from "../../assets/hero/profile.jpg";
+import bannerImg from "../../assets/hero/banner.gif";
 
 const ROLES = ["Software Developer", "Curious Builder", "Product Engineer"];
 

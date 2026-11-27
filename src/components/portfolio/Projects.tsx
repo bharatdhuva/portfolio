@@ -1,9 +1,9 @@
 import { Github, Globe } from "lucide-react";
 import { TechIcon } from "./TechIcon";
-import interviewosImg from "../../assets/interviewos.gif";
-import khetseImg from "../../assets/khetse-preview.png";
-import outlyImg from "../../assets/outly.gif";
-import bookstageImg from "../../assets/image.png";
+import interviewosImg from "../../assets/projects/interviewos.gif";
+import khetseImg from "../../assets/projects/khetse-preview.png";
+import outlyImg from "../../assets/projects/outly.gif";
+import bookstageImg from "../../assets/projects/bookstage.png";
 
 interface Project {
   name: string;

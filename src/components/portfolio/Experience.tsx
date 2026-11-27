@@ -1,4 +1,5 @@
 import { TechIcon } from "./TechIcon";
+import yvThinkersLogo from "../../assets/experience/yv-thinkers-logo.jpg";
 
 interface ExperienceItem {
   title: string;
@@ -8,6 +9,8 @@ interface ExperienceItem {
   description: string;
   bullets: string[];
   tech: string[];
+  logo?: string;
+  logoAlt?: string;
 }
 
 const items: ExperienceItem[] = [
@@ -17,6 +20,8 @@ const items: ExperienceItem[] = [
     location: "Onsite",
     range: "Jul 2023 — Sep 2023",
     description: "MERN | REST APIs | JWT | MongoDB",
+    logo: yvThinkersLogo,
+    logoAlt: "YV Thinkers logo",
     bullets: [
       "Built full-stack CRM using MERN stack for Admin and Customer-facing workflows — designed scalable REST APIs for order tracking, data management, and admin controls handling concurrent requests.",
       "Implemented role-based JWT authentication with dual-token strategy and applied SOLID principles with clean architecture.",
@@ -35,39 +40,52 @@ export function Experience() {
 
       <div className="space-y-8">
         {items.map((it, i) => (
-          <div key={i} className="space-y-2">
-            <div className="flex items-baseline justify-between gap-4 flex-wrap">
-              <div className="text-sm text-foreground">
-                <span className="font-semibold text-foreground">{it.title}</span>
-                <span className="text-muted-foreground"> · </span>
-                <span className="text-foreground/90 font-medium">{it.company}</span>
+          <div key={i} className="flex items-start gap-3.5">
+            {it.logo && (
+              <div className="w-10 h-10 rounded-lg border border-border/60 bg-white p-1 flex items-center justify-center shrink-0 mt-0.5 overflow-hidden">
+                <img
+                  src={it.logo}
+                  alt={it.logoAlt ?? `${it.company} logo`}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-              <div className="text-xs text-muted-foreground font-mono">{it.range}</div>
+            )}
+            <div className="flex-1 min-w-0 space-y-2">
+              <div className="flex items-baseline justify-between gap-4 flex-wrap">
+                <div className="text-sm text-foreground">
+                  <span className="font-semibold text-foreground">{it.title}</span>
+                  <span className="text-muted-foreground"> · </span>
+                  <span className="text-foreground/90 font-medium">{it.company}</span>
+                </div>
+                <div className="text-xs text-muted-foreground font-mono">{it.range}</div>
+              </div>
+
+              <div className="text-xs text-muted-foreground">{it.location}</div>
+              <p className="text-xs font-mono text-muted-foreground/90">{it.description}</p>
+
+              {it.bullets.length > 0 && (
+                <ul className="space-y-1.5 my-3 list-disc pl-4 text-xs text-foreground/80 leading-relaxed">
+                  {it.bullets.map((b, j) => (
+                    <li key={j}>{b}</li>
+                  ))}
+                </ul>
+              )}
+
+              {it.tech.length > 0 && (
+                <div className="flex items-center gap-2.5 pt-1">
+                  {it.tech.map((t) => (
+                    <div
+                      key={t}
+                      className="transition-transform duration-150 hover:scale-110 active:scale-90"
+                    >
+                      <TechIcon name={t} className="h-4.5 w-4.5" />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-
-            <div className="text-xs text-muted-foreground">{it.location}</div>
-            <p className="text-xs font-mono text-muted-foreground/90">{it.description}</p>
-
-            {it.bullets.length > 0 && (
-              <ul className="space-y-1.5 my-3 list-disc pl-4 text-xs text-foreground/80 leading-relaxed">
-                {it.bullets.map((b, j) => (
-                  <li key={j}>{b}</li>
-                ))}
-              </ul>
-            )}
-
-            {it.tech.length > 0 && (
-              <div className="flex items-center gap-2.5 pt-1">
-                {it.tech.map((t) => (
-                  <div
-                    key={t}
-                    className="transition-transform duration-150 hover:scale-110 active:scale-90"
-                  >
-                    <TechIcon name={t} className="h-4.5 w-4.5" />
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         ))}
       </div>
