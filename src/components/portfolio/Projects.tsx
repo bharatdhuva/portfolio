@@ -1,9 +1,9 @@
 import { Github, Globe } from "lucide-react";
 import { TechIcon } from "./TechIcon";
-import interviewosImg from "../../assets/projects/interviewos.gif";
-import khetseImg from "../../assets/projects/khetse-preview.png";
-import outlyImg from "../../assets/projects/outly.gif";
-import bookstageImg from "../../assets/projects/bookstage.png";
+import interviewosImg from "../../assets/projects/interviewos.webp";
+import khetseImg from "../../assets/projects/khetse-preview.webp";
+import outlyImg from "../../assets/projects/outly.webp";
+import bookstageImg from "../../assets/projects/bookstage.webp";
 
 interface Project {
   name: string;
@@ -15,8 +15,6 @@ interface Project {
   github?: string;
   globe?: string;
   objectFit?: string;
-  thumbnailAspect?: string;
-  disableThumbnailZoom?: boolean;
 }
 
 const projects: Project[] = [
@@ -27,9 +25,7 @@ const projects: Project[] = [
     gradient: "from-amber-500 via-orange-600 to-red-600",
     accent: "AI-Powered Career & Email Automation",
     image: outlyImg,
-    objectFit: "object-cover",
-    thumbnailAspect: "aspect-[2.19/1]",
-    disableThumbnailZoom: true,
+    objectFit: "object-cover object-top",
     tech: ["Re", "TS", "VT", "Nd", "Ex", "Mg", "GE"],
     github: "https://github.com/bharatdhuva/Outly",
     globe: "https://outly.online",
@@ -41,6 +37,7 @@ const projects: Project[] = [
     gradient: "from-indigo-600 via-purple-700 to-pink-600",
     accent: "Real-Time Collaborative Interview Platform",
     image: interviewosImg,
+    objectFit: "object-cover object-top",
     tech: ["Re", "Nd", "Ex", "Mg", "Wc", "Io", "J0"],
     github: "https://github.com/bharatdhuva/Interview-OS",
     globe: "https://interviewos-bharatdhuva.vercel.app/",
@@ -52,6 +49,7 @@ const projects: Project[] = [
     gradient: "from-blue-600 via-indigo-700 to-cyan-600",
     accent: "Full-Stack Ticket Booking Platform",
     image: bookstageImg,
+    objectFit: "object-cover object-top",
     tech: ["Re", "An", "PG", "Dk", "Jw", "Vt"],
     github: "https://github.com/bharatdhuva/Bookstage",
     globe: "https://bookstage.vercel.app",
@@ -63,6 +61,7 @@ const projects: Project[] = [
     gradient: "from-green-600 via-emerald-700 to-teal-600",
     accent: "Farm-to-Home Fresh Produce & Dairy Platform",
     image: khetseImg,
+    objectFit: "object-cover object-top",
     tech: ["RE", "TW"],
     github: "https://github.com/bharatdhuva/Khetse---Farm-to-Home-",
     globe: "https://khetse-fresh.vercel.app/",
@@ -90,7 +89,7 @@ export function Projects() {
                 href={p.globe || p.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`relative w-full ${p.thumbnailAspect ?? "aspect-video"} overflow-hidden rounded-t-xl block cursor-pointer bg-card`}
+                className="relative w-full aspect-[2/1] overflow-hidden rounded-t-xl border-b border-border block cursor-pointer bg-card"
               >
                 {p.image ? (
                   <img
@@ -98,7 +97,7 @@ export function Projects() {
                     alt={`${p.name} screenshot`}
                     loading={p.name === "Outly" ? "eager" : "lazy"}
                     decoding="async"
-                    className={`w-full h-full ${p.objectFit ?? "object-cover"} block transition-transform duration-500 ${p.disableThumbnailZoom ? "" : "group-hover:scale-[1.03]"}`}
+                    className={`w-full h-full ${p.objectFit ?? "object-cover"} block`}
                   />
                 ) : (
                   <div
@@ -112,7 +111,7 @@ export function Projects() {
               </a>
             ) : (
               <div
-                className={`relative w-full ${p.thumbnailAspect ?? "aspect-video"} overflow-hidden rounded-t-xl block bg-card`}
+                className="relative w-full aspect-[2/1] overflow-hidden rounded-t-xl border-b border-border block bg-card"
               >
                 {p.image ? (
                   <img
@@ -120,7 +119,7 @@ export function Projects() {
                     alt={`${p.name} screenshot`}
                     loading="lazy"
                     decoding="async"
-                    className={`w-full h-full ${p.objectFit ?? "object-cover"} block transition-transform duration-500 ${p.disableThumbnailZoom ? "" : "group-hover:scale-[1.03]"}`}
+                    className={`w-full h-full ${p.objectFit ?? "object-cover"} block`}
                   />
                 ) : (
                   <div

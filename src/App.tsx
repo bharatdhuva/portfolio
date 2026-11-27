@@ -1,22 +1,48 @@
+import { lazy, Suspense } from "react";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Hero } from "@/components/portfolio/Hero";
-import { ContributionHeatmap } from "@/components/portfolio/ContributionHeatmap";
 import { TechStack } from "@/components/portfolio/TechStack";
-import { Projects } from "@/components/portfolio/Projects";
-import { Experience } from "@/components/portfolio/Experience";
-import { Education } from "@/components/portfolio/Education";
-import { Contact } from "@/components/portfolio/Contact";
-import { Footer } from "@/components/portfolio/Footer";
 import { ScrollReveal } from "@/components/portfolio/ScrollReveal";
-import { KeyboardSection } from "@/components/portfolio/KeyboardSection";
-import { CommandMenu } from "@/components/portfolio/CommandMenu";
 import { Toaster } from "@/components/ui/sonner";
+
+const ContributionHeatmap = lazy(() =>
+  import("@/components/portfolio/ContributionHeatmap").then((m) => ({
+    default: m.ContributionHeatmap,
+  })),
+);
+const Projects = lazy(() =>
+  import("@/components/portfolio/Projects").then((m) => ({ default: m.Projects })),
+);
+const Experience = lazy(() =>
+  import("@/components/portfolio/Experience").then((m) => ({ default: m.Experience })),
+);
+const Education = lazy(() =>
+  import("@/components/portfolio/Education").then((m) => ({ default: m.Education })),
+);
+const Contact = lazy(() =>
+  import("@/components/portfolio/Contact").then((m) => ({ default: m.Contact })),
+);
+const KeyboardSection = lazy(() =>
+  import("@/components/portfolio/KeyboardSection").then((m) => ({
+    default: m.KeyboardSection,
+  })),
+);
+const Footer = lazy(() =>
+  import("@/components/portfolio/Footer").then((m) => ({ default: m.Footer })),
+);
+const CommandMenu = lazy(() =>
+  import("@/components/portfolio/CommandMenu").then((m) => ({
+    default: m.CommandMenu,
+  })),
+);
 
 function App() {
   return (
     <div className="min-h-screen text-foreground antialiased relative">
       {/* Global Interactive Command Palette (Cmd+K / Ctrl+K) */}
-      <CommandMenu />
+      <Suspense fallback={null}>
+        <CommandMenu />
+      </Suspense>
 
       {/* Global Notification Toaster */}
       <Toaster position="bottom-right" richColors />
@@ -42,27 +68,29 @@ function App() {
         <ScrollReveal delay={100}>
           <TechStack />
         </ScrollReveal>
-        <ScrollReveal delay={200}>
-          <ContributionHeatmap />
-        </ScrollReveal>
-        <ScrollReveal>
-          <Projects />
-        </ScrollReveal>
-        <ScrollReveal>
-          <Experience />
-        </ScrollReveal>
-        <ScrollReveal>
-          <Education />
-        </ScrollReveal>
-        <ScrollReveal>
-          <Contact />
-        </ScrollReveal>
-        <ScrollReveal>
-          <KeyboardSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <Footer />
-        </ScrollReveal>
+        <Suspense fallback={null}>
+          <ScrollReveal delay={200}>
+            <ContributionHeatmap />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Projects />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Experience />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Education />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Contact />
+          </ScrollReveal>
+          <ScrollReveal>
+            <KeyboardSection />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Footer />
+          </ScrollReveal>
+        </Suspense>
       </main>
     </div>
   );

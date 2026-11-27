@@ -1,5 +1,5 @@
-import msuLogo from "../../assets/education/msu-baroda-logo.png";
-import gtuLogo from "../../assets/education/gtu-logo.png";
+import msuLogo from "../../assets/education/msu-baroda-logo.webp";
+import gtuLogo from "../../assets/education/gtu-logo.webp";
 
 interface EducationItem {
   degree: string;

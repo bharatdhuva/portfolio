@@ -15,5 +15,15 @@ export default defineConfig({
     host: "::",
     port: 8080,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-ui": ["lucide-react", "cmdk", "sonner"],
+          "vendor-query": ["@tanstack/react-query"],
+        },
+      },
+    },
+  },
 });
 

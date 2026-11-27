@@ -1,5 +1,5 @@
 import { TechIcon } from "./TechIcon";
-import yvThinkersLogo from "../../assets/experience/yv-thinkers-logo.jpg";
+import yvThinkersLogo from "../../assets/experience/yv-thinkers-logo.webp";
 
 interface ExperienceItem {
   title: string;
@@ -18,7 +18,7 @@ const items: ExperienceItem[] = [
     title: "Software Development Intern",
     company: "YV Thinkers",
     location: "Onsite",
-    range: "Jul 2023 — Sep 2023",
+    range: "Jul 2023 — Dec 2023",
     description: "MERN | REST APIs | JWT | MongoDB",
     logo: yvThinkersLogo,
     logoAlt: "YV Thinkers logo",

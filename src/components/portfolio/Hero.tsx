@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MapPin, Mail, User, Github, Globe, Twitter } from "lucide-react";
 import { toast } from "sonner";
-import profileImg from "../../assets/hero/profile.jpg";
+import profileImg from "../../assets/hero/profile.webp";
 import bannerImg from "../../assets/hero/banner.gif";
 
 const ROLES = ["Software Developer", "Curious Builder", "Product Engineer"];
@@ -44,6 +44,8 @@ export function Hero() {
         <img
           src={bannerImg}
           alt="Banner Image"
+          loading="eager"
+          fetchPriority="high"
           className="w-full h-full object-cover"
         />
       </div>
@@ -52,7 +54,9 @@ export function Hero() {
         <img
           src={profileImg}
           alt="Bharat Dhuva"
+          loading="eager"
           decoding="async"
+          fetchPriority="high"
           className="h-14 w-14 sm:h-[60px] sm:w-[60px] flex-shrink-0 rounded-full object-cover border border-border shadow-sm"
         />
         <div className="min-w-0">
